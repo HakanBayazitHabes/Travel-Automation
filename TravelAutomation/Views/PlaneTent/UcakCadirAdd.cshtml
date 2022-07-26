@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "UcakHotelAdd";
+    Layout = "~/Views/Shared/_TravelLayout.cshtml";
+}
+
+<div class="content-two ">
+    <div class="row ">
+        <div class="col-md-3 space right-space" style="margin-top:70px;">
+
+
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Nereden</label>
+                        <select class="form-control form-select col-md-12 " name="" aria-label="Default select example">
+                            <option value="Ankara" selected>Ankara</option>
+                            <option value="İzmir">İzmir</option>
+                            <option value="İstanbul">İstanbul</option>
+                            <option value="Bursa">Bursa</option>
+                            <option value="Muğla">Muğla</option>
+                            <option value="Antalya">Antalya</option>
+                            <option value="Kahramanmaraş">Kahramanmaraş</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col">Nereye</label>
+                        <select class="form-control form-select col-md-12 " name="" aria-label="Default select example">
+                            <option value="İstanbul" selected>İstanbul</option>
+                            <option value="İzmir">İzmir</option>
+                            <option value="Ankara">Ankara</option>
+                            <option value="Bursa">Bursa</option>
+                            <option value="Muğla">Muğla</option>
+                            <option value="Antalya">Antalya</option>
+                            <option value="Kahramanmaraş">Kahramanmaraş</option>
+                        </select>
+                        <i style="margin-left:-22px;margin-top:-25px; position:absolute" class="far fa-plane"></i>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Gidiş Tarihi</label>
+                        <input type="datetime" class="input-box form-control col-md" name="Mail" placeholder="Your email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Dönüş Tarihi</label>
+                        <input type="datetime" class="input-box form-control col-md" name="Password" placeholder="Password" required>
+                    </div>
+                </div>
+
+
+                <br />
+
+                <a href="#rezervation" class="hero-btn form-control col-md" style="margin-top:10px; text-align:center;text-decoration:none;">Bilet Al</a>
+            </form>
+
+
+        </div>
+        <div class="col-md-6" style=" margin-top: 60px;">
+            <h1 class="header1">
+            </h1>
+
+        </div>
+    </div>
+</div>
+<!-----------course------------>
+<section class="course">
+    <h1>
+        Our Services
+    </h1>
+    <br />
+
+    <div class="satir">
+        <div class="course-col">
+            <img src="~/img/trophy.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Milyonlarca Ziyaretçi
+            </h4>
+            <p>
+                Binlerce havayolunun tüm uçak biletleri her ay milyonlarca kullanıcı tarafından listeleniyor, Biletall.com ucuz uçak biletleri sunuyor.
+            </p>
+        </div>
+        <div class="course-col">
+            <img src="~/img/ticket.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Hızlıca Biletini Al!
+            </h4>
+            <p>
+                Kullanıcı deneyimini önceleyen tasarımı ile Biletall.com'dan kolayca uçak bileti satın alabilirsiniz.
+            </p>
+
+        </div>
+        <div class="course-col">
+            <img src="~/img/secure.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Güvenli Ödeme
+            </h4>
+            <p>
+                Online biletinizi satın alırken 3D Secure kullanabilir, hızlı ve güvenli şekilde uçak bileti satın alabilirsiniz.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ------------campus------------ -->
+
+<section class="campus">
+    <h1>
+        Our Popular Hotel Cities
+    </h1>
+    <p>
+    </p>
+    <div class="satir">
+        <div class="campus-col">
+            <img src="~/img/antalya.jpg">
+            <div class="layer">
+                <h3>ANTALYA</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="~/img/izmir.jpg">
+            <div class="layer">
+                <h3>İZMİR</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="~/img/Muğla.jpg"
+                 >
+            <div class="layer">
+                <h3>MUĞLA</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br />
+<br />
+<div class="container" id="rezervation">
+    <div class="row ">
+        <div class="col-md-12 " style="margin-top:60px;">
+
+            @using (Html.BeginForm("UcakCadirEkle", "PlaneTent", FormMethod.Post))
+            {
+                <form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Nereden</label>
+                            <select class="form-control form-select col-md-12 " name="KalkışLokasyonu" aria-label="Default select example">
+                                <option value="Ankara" selected>Ankara</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="İstanbul">İstanbul</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                        </div>
+                        <i style="margin-left: 23.5%; margin-top: -36px;font-size:25px; color:red; position: absolute" class="far fa-plane-departure"></i>
+                        <i style="margin-left: 73%; margin-top: -36px;font-size:25px; color:red; position: absolute" class="far fa-campground"></i>
+
+                        <div class="col-md-3">
+                            <label class="col">Nereye</label>
+                            <select class="form-control form-select col-md-12 " name="VarışLokasyonu" aria-label="Default select example">
+                                <option value="İstanbul" selected>İstanbul</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                            <i style="margin-left:-22px;margin-top:-25px; position:absolute" class="far fa-plane"></i>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Lokasyon</label>
+                            <select class="form-control form-select col-md-12 " name="Lokasyon" aria-label="Default select example">
+                                <option value="İstanbul" selected>İstanbul</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Uçak Gidiş Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="GidişTarihi" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Uçak Dönüş Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="DönüşTarihi" placeholder="Password" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Çadır Kiralama Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="CadirGirisTarihi" placeholder="Password" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Çadır Teslim Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="CadirÇıkışTarihi" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Bilet Sayısı</label>
+                            <input type="number" min="1" max="1" step="1" class="input-box form-control col-md" name="BiletSayisi" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Bilet Fiyatı</label>
+                            <input type="text" class="input-box form-control col-md" name="PlaneFiyat" value="679" placeholder="679₺" disabled>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Çadır Sayısı</label>
+                            <input type="number" min="1" max="1" step="1" class="input-box form-control col-md" name="CadirSayisi" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Çadır Fiyatı</label>
+                            <input type="text" class="input-box form-control col-md" name="CadirFiyat" value="440" placeholder="679₺" disabled>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Ad</label>
+                            <input type="text" class="input-box form-control col-md" name="Name" placeholder="Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Soyad</label>
+                            <input type="text" class="input-box form-control col-md" name="Surname" placeholder="Surname" required>
+                        </div>
+                    </div>
+
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>E-Posta</label>
+                            <input type="email" class="input-box form-control col-md" name="Email" placeholder="E-mail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Telefon Numarası</label>
+                            <input type="tel" class="input-box form-control col-md" name="TelNumber" placeholder="(___)-(___)-(__)-(__)" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" required>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <button type="submit" onclick="validation();" class="hero-btn form-control col-md" style="margin-top:10px; text-align:center">Bilet Al & Çadır Rezervasyonu Yap </button>
+                </form>
+            }
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    demo();
+    function validation() {
+        swal("Succsess!", "İşleminiz Başarıyla Gerçekleşmiştir", "success", {
+            button: null,
+        });
+    }
+
+</script>

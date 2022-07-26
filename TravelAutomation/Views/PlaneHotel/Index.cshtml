@@ -1,0 +1,196 @@
+﻿@using EntityLayer.Concreate
+@model List<PlaneHotel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TravelLayout.cshtml";
+}
+
+
+
+<html>
+@{ int id;}
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-5 mt-5">
+                <div class="col-sm-3 container">
+                    <h1>Yapılan Rezervasyon</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <a href="/PlaneHotel/RaporlarinOlusturulmasiJSON/" class="btn btn-warning" style="margin-left:15px;text-decoration:none;">JSON</a>
+    <a href="/PlaneHotel/RaporlarinOlusturulmasiXML/" class="btn btn-warning" style="margin-left:15px;text-decoration:none;">XML</a>
+    <a href="/PlaneHotel/RaporlarinOlusturulmasiHTML/" class="btn btn-warning" style="margin-left:15px;text-decoration:none;">HTML</a>
+    <br /><br />
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 6%">
+                                #
+                            </th>
+                            <th style="width: 14%">
+                                Name
+                            </th>
+                            <th style="width: 14%">
+                                Surname
+                            </th>
+                            <th style="width: 14%">
+                                E-mail
+                            </th>
+                            <th style="width: 14%">
+                                Phone Number
+                            </th>
+                            <th style="width: 16%">
+                                Plane Reservation
+                            </th>
+                            <th style="width: 14%">
+                                Hotel Reservation
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsDeleteHotel != "Delete" || item.IsDeletePlane != "Delete")
+                            {
+                                <tr>
+                                    <td>
+                                        @item.ID
+                                    </td>
+                                    <td>
+                                        <a>
+                                            @item.Name
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span>@item.Surname</span>
+                                    </td>
+                                    <td>
+                                        <span>@item.Email</span>
+                                    </td>
+                                    <td>
+                                        <span>@item.TelNumber</span>
+                                    </td>
+                                    <td>
+                                        @{id = item.ID;}
+                                        @if (item.IsDeletePlane == "Delete")
+                                        {
+                                            <a class="btn btn-danger disabled" href="#" data-toggle="modal" data-target="#Modal2">
+                                                Uçak Biletini İptal Et
+                                            </a>
+                                        }
+                                        @if (item.IsDeletePlane != "Delete")
+                                        {
+                                            <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#Modal2">
+                                                Uçak Biletini İptal Et
+                                            </a>
+                                        }
+                                        <div class="modal" id="Modal2">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3 class="modal-title">Hotel Rezervasyonu İptal Edilsin mi?</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Hotel Rezervasyonunuzu da iptal etmek istiyor musunuz aksi takdirde
+                                                            Hotel rezervasyonunuz iptal edilmeyecek.
+                                                        </p>
+                                                        <p style="margin-top:-10px;">
+                                                            Hotel rezervasyonunuz iptal etmek istiyor musunuz?
+                                                        </p>
+
+                                                        <div class="row ml-5">
+                                                            <div class="col-md-7">
+                                                                <a href="/PlaneHotel/PlaneHotelIptal/@id" onclick="validationEvet();" class="btn btn-danger"> Evet</a>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a href="/PlaneHotel/PlaneIptal/@id" onclick="validationPlaneHayir();" class="btn btn-info">Hayır</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="project-actions">
+                                        @{id = item.ID;}
+                                        @if (item.IsDeleteHotel == "Delete")
+                                        {
+                                            <a class="btn btn-danger disabled" href="#" data-toggle="modal" data-target="#Modal1">
+                                                Hotel Rezerveni İptal Et
+                                            </a>
+                                        }
+                                        @if (item.IsDeleteHotel != "Delete")
+                                        {
+                                            <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#Modal1">
+                                                Hotel Rezerveni İptal Et
+                                            </a>
+                                        }
+
+
+                                        <div class="modal" id="Modal1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3 class="modal-title">Uçak Rezervasyonu İptal Edilsin mi?</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Uçak Rezervasyonunuzu da iptal etmek istiyor musunuz aksi takdirde
+                                                            Uçak rezervasyonunuz iptal edilmeyecek.
+                                                        </p>
+                                                        <p style="margin-top:-10px;">
+                                                            Uçak rezervasyonunuz iptal etmek istiyor musunuz?
+                                                        </p>
+
+                                                        <div class="row ml-5">
+                                                            <div class="col-md-7">
+                                                                <a href="/PlaneHotel/PlaneHotelIptal/@id" onclick="validationEvet();" class="btn btn-danger"> Evet</a>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a href="/PlaneHotel/HotelIptal/@id" onclick="validationHotelHayir();" class="btn btn-info">Hayır</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <script type="text/javascript">
+        demo();
+        function validationEvet() {
+            swal("Succsess!", "Uçak ve Hotel rezervasyonlarınız başarıyla iptal edilmiştir", "success", {
+                button: null,
+            });
+        }
+        function validationHotelHayir() {
+            swal("Succsess!", "Hotel rezervasyonunuz başarıyla iptal edilmiştir", "success", {
+                button: null,
+            });
+        }
+        function validationPlaneHayir() {
+            swal("Succsess!", "Uçak rezervasyonunuz başarıyla iptal edilmiştir", "success", {
+                button: null,
+            });
+        }
+    </script>
+</body>
+</html>

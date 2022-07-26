@@ -1,0 +1,276 @@
+﻿
+@{
+    ViewBag.Title = "UcakHotelAdd";
+    Layout = "~/Views/Shared/_TravelLayout.cshtml";
+}
+
+<div class="content-bus ">
+    <div class="row ">
+        <div class="col-md-3 space right-space" style="margin-top:70px;">
+
+
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Nereden</label>
+                        <select class="form-control form-select col-md-12 " name="" aria-label="Default select example">
+                            <option value="Ankara" selected>Ankara</option>
+                            <option value="İzmir">İzmir</option>
+                            <option value="İstanbul">İstanbul</option>
+                            <option value="Bursa">Bursa</option>
+                            <option value="Muğla">Muğla</option>
+                            <option value="Antalya">Antalya</option>
+                            <option value="Kahramanmaraş">Kahramanmaraş</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col">Nereye</label>
+                        <select class="form-control form-select col-md-12 " name="" aria-label="Default select example">
+                            <option value="İstanbul" selected>İstanbul</option>
+                            <option value="İzmir">İzmir</option>
+                            <option value="Ankara">Ankara</option>
+                            <option value="Bursa">Bursa</option>
+                            <option value="Muğla">Muğla</option>
+                            <option value="Antalya">Antalya</option>
+                            <option value="Kahramanmaraş">Kahramanmaraş</option>
+                        </select>
+                        <i style="margin-left:-22px;margin-top:-25px; position:absolute" class="far fa-bus"></i>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Gidiş Tarihi</label>
+                        <input type="datetime" class="input-box form-control col-md" name="Mail" placeholder="Your email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Dönüş Tarihi</label>
+                        <input type="datetime" class="input-box form-control col-md" name="Password" placeholder="Password" required>
+                    </div>
+                </div>
+
+
+                <br />
+
+                <a href="#rezervation" class="hero-btn form-control col-md" style="margin-top:10px; text-align:center;text-decoration:none;">Bilet Al</a>
+            </form>
+
+
+        </div>
+        <div class="col-md-6" style=" margin-top: 60px;">
+            <h1 class="header1">
+            </h1>
+
+        </div>
+    </div>
+</div>
+<!-----------course------------>
+<section class="course">
+    <h1>
+        Our Services
+    </h1>
+    <br />
+
+    <div class="satir">
+        <div class="course-col">
+            <img src="~/img/trophy.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Hızlı ve Kolay
+            </h4>
+            <p>
+                World Travel sayesinde size en uygun otobüs biletini birkaç tıkla hızla ve kolayca satın alın.
+            </p>
+        </div>
+        <div class="course-col">
+            <img src="~/img/flag.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Tek Adres
+            </h4>
+            <p>
+                World Travel'dan başka sitelere yönlendirilmeden size en uygun bileti satın alın.
+            </p>
+
+        </div>
+        <div class="course-col">
+            <img src="~/img/secure.svg" style="width: 90px; height: auto;" />
+            <h4 style="margin-top:14px;">
+                Güvenli Alışveriş
+            </h4>
+            <p>
+                Tüm ödeme işlemleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.
+
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ------------campus------------ -->
+
+<section class="campus">
+    <h1>
+        Our Global Favorite Cities
+    </h1>
+    <p>
+    </p>
+    <div class="satir">
+        <div class="campus-col">
+            <img src="~/img/otel.jpg">
+            <div class="layer">
+                <h3>İZMİR</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="~/img/otel2.jpg">
+            <div class="layer">
+                <h3>ANTALYA</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="~/img/otel3.png">
+            <div class="layer">
+                <h3>MUĞLA</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br />
+<br />
+<div class="container" id="rezervation">
+    <div class="row ">
+        <div class="col-md-12 " style="margin-top:60px;">
+
+            @using (Html.BeginForm("BusHotelEkle", "BusHotel", FormMethod.Post))
+            {
+                <form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Nereden</label>
+                            <select class="form-control form-select col-md-12 " name="KalkışLokasyonu" aria-label="Default select example">
+                                <option value="Ankara" selected>Ankara</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="İstanbul">İstanbul</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                        </div>
+                        <i style="margin-left: 23.5%; margin-top: -36px;font-size:25px; color:red; position: absolute" class="far fa-bus"></i>
+                        <i style="margin-left: 73%; margin-top: -36px;font-size:25px; color:red; position: absolute" class="far fa-hotel"></i>
+
+                        <div class="col-md-3">
+                            <label class="col">Nereye</label>
+                            <select class="form-control form-select col-md-12 " name="VarışLokasyonu" aria-label="Default select example">
+                                <option value="İstanbul" selected>İstanbul</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                            <i style="margin-left:-22px;margin-top:-25px; position:absolute" class="far fa-bus"></i>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Lokasyon</label>
+                            <select class="form-control form-select col-md-12 " name="Lokasyon" aria-label="Default select example">
+                                <option value="İstanbul" selected>İstanbul</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Otobüs Gidiş Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="OtobusGidişTarihi" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Otobüs Dönüş Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="OtobusDönüşTarihi" placeholder="" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Otel Giriş Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="HotelGirişTarihi" placeholder="" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Otel Çıkış Tarihi</label>
+                            <input type="date" class="input-box form-control col-md" name="HotelÇıkışTarihi" placeholder="" required>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Bilet Sayısı</label>
+                            <input type="number" min="1" max="1" step="1" class="input-box form-control col-md" name="BusBiletSayisi" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Bilet Fiyatı</label>
+                            <input type="text" class="input-box form-control col-md" name="BusFiyat" value="679" placeholder="679₺" disabled>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Oda Sayısı</label>
+                            <input type="number" min="1" max="1" step="1" class="input-box form-control col-md" name="OdaSayisi" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Hotel Fiyatı</label>
+                            <input type="text" class="input-box form-control col-md" name="HotelFiyat" value="350" placeholder="679₺" disabled>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Ad</label>
+                            <input type="text" class="input-box form-control col-md" name="Name" placeholder="Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Soyad</label>
+                            <input type="text" class="input-box form-control col-md" name="Surname" placeholder="Surname" required>
+                        </div>
+                    </div>
+
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>E-Posta</label>
+                            <input type="email" class="input-box form-control col-md" name="Email" placeholder="E-mail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Telefon Numarası</label>
+                            <input type="tel" class="input-box form-control col-md" name="TelNumber" placeholder="(___)-(___)-(__)-(__)" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" required>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <button type="submit" onclick="validation();" class="hero-btn form-control col-md" style="margin-top:10px; text-align:center">Bilet Al & Hotel Rezervasyonu Yap </button>
+                </form>
+            }
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    demo();
+    function validation() {
+        swal("Succsess!", "İşleminiz Başarıyla Gerçekleşmiştir", "success", {
+            button: null,
+        });
+    }
+
+</script>
+

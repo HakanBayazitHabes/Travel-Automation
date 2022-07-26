@@ -1,0 +1,190 @@
+﻿@using EntityLayer.Concreate
+@model List<PlaneTent>
+@{
+    Layout = null;
+}
+
+<br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervasyon Raporlama  İşlemi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+</head>
+
+<body class="ml-5 mr-5 mt-lg-5">
+    <h3 style="text-align:center;">Rezervasyon Raporlama</h3>
+    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>E-mail</th>
+                <th>Telefon Numarası</th>
+                <th>Otobüs Gidiş Bilgisi</th>
+                <th>Otobüs Gidiş Bilgisi</th>
+                <th>Lokasyon</th>
+                <th>Otobüs Kalkış Lokasyonu</th>
+                <th>Otobüs Varış Lokasyonu</th>
+                <th>Bilet Sayisi</th>
+                <th>Hotel Giriş Tarihi</th>
+                <th>Hotel Çıkış Tarihi</th>
+                <th>Oda Sayisi</th>
+                <th>Otobüs Fiyatı</th>
+                <th>Hotel Fiyatı</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var x in Model)
+            {
+                if (x.IsDeleteCadir != "Delete" || x.IsDeletePlane != "Delete")
+                {
+                    <tr>
+
+                        <td>@x.Name</td>
+                        <td>@x.Surname</td>
+                        <td>@x.Email</td>
+                        <td>@x.TelNumber</td>
+
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.GidişTarihi</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.DönüşTarihi</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeleteCadir != "Delete")
+                        {
+                            <td>@x.Lokasyon</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.KalkışLokasyonu</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.VarışLokasyonu</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.BiletSayısı</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeleteCadir != "Delete")
+                        {
+                            <td>@x.CadirGirisTarihi</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.CadirÇıkışTarihi</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeleteCadir != "Delete")
+                        {
+                            <td>@x.CadirSayisi</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeletePlane != "Delete")
+                        {
+                            <td>@x.PlaneFiyat</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+                        @if (x.IsDeleteCadir != "Delete")
+                        {
+                            <td>@x.CadirFiyat</td>
+                        }
+                        else
+                        {
+                            <td>İptal Edilmiştir</td>
+                        }
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: 'JSON',
+                        action: function (e, dt, button, config) {
+                            var data = dt.buttons.exportData();
+
+                            $.fn.dataTable.fileSave(
+                                new Blob([JSON.stringify(data)]),
+                                'Export.json'
+                            );
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
+
